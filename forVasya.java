@@ -6,6 +6,8 @@ package Tetris;
     import java.awt.*;
     import java.awt.event.KeyAdapter;
     import java.awt.event.KeyEvent;
+    import java.text.SimpleDateFormat;
+    import java.util.Date;
     import javax.swing.JFrame;
     import javax.swing.JLabel;
     import javax.swing.JPanel;
@@ -22,6 +24,8 @@ package Tetris;
         public void createGUI() {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+            Date date = new Date();
             JPanel panel = new JPanel();
             panel.setLayout(new BorderLayout());
             panel.setFocusable(true);
@@ -33,7 +37,7 @@ package Tetris;
             panel.addKeyListener(new KeyAdapter() {
 
                 public void keyReleased(KeyEvent e) {
-                    label.setText(e.getKeyText(e.getKeyCode()));
+                    label.setText(sdf.format(date)+"  "+e.getKeyText(e.getKeyCode()));
                 }
             });
 
